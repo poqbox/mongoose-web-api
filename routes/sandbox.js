@@ -9,7 +9,18 @@ const router = express.Router()
 // routes
 router.route("/")
   .get(async (request, response) => {
-    response.json(await Sandbox.find(request.body))
+    const query = request.body
+    const id = request.query["id"]
+    const name = request.query["name"]
+
+    if (query)
+      response.json(await Sandbox.find(request.body))
+    else if (id)
+      response.json(await Sandbox.find({id: id}))
+    else if (name)
+      response.json(await Sandbox.find({name: name}))
+    else
+      response.json(await Sandbox.find(request.body))
   })
   .post(async (request, response, next) => {
     const name = request.body.name
