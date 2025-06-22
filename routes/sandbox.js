@@ -44,6 +44,12 @@ router.route("/:id")
   .get(async (request, response) => {
     response.json(await Sandbox.findById(request.params.id))
   })
+  .patch(async (request, response) => {
+    response.json(await Sandbox.updateOne({_id: request.params.id}, request.body))
+  })
+  .delete(async (request, response) => {
+    response.json(await Sandbox.deleteOne({_id: request.params.id}))
+  })
 
 
 export default router
