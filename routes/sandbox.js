@@ -38,8 +38,9 @@ router.route("/")
           height: height
         }
       })
-      if (stuff) {sandbox.stuff = stuff}
-        await sandbox.save()
+      if (stuff)
+        sandbox.stuff = stuff
+      await sandbox.save()
 
       response.json(sandbox)
     }
