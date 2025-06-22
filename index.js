@@ -4,6 +4,7 @@ import "dotenv/config"
 import {get_database_URI} from "./utils/utils.js"
 import collections from "./routes/collections.js"
 import sandbox from "./routes/sandbox.js"
+import stuff from "./routes/stuff.js"
 
 
 const PORT = 3000
@@ -17,6 +18,7 @@ app.use(express.json())
 // routers
 app.use("/api/collections", collections)
 app.use("/api/sandbox", sandbox)
+app.use("/api/stuff", stuff)
 
 
 // routes
